@@ -1,0 +1,15 @@
+[Unit]
+Description=Network Radar service
+After=network.target
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+User=pi
+RemainAfterExit=yes
+ExecStart=/bin/bash /home/pi/Desktop/network-radar.sh
+
+[Install]
+WantedBy=multi-user.target
